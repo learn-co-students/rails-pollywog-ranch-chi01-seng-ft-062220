@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :frogs
+  resources :tadpoles
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # root
   root to: 'static_pages#home'
@@ -8,8 +10,7 @@ Rails.application.routes.draw do
   get '/frogs/:id/destroy', to: 'frogs#destroy'
   get '/tadpoles/:id/destroy', to: 'tadpoles#destroy'
 
-  # code your post to  '/tadpoles/:id/metamorphose' here
-  # it should direct to the tadpoles controller, the metamorphose action
+  post '/tadpoles/:id/metamorphose', to: 'tadpoles#metamorphose', as: 'metamorphose'
 
   # resources
   resources :ponds
